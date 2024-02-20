@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.menu {
+    width: 100%;
+    background: gray;
+    padding: 10px;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.menu a:hover {
+    text-decoration: underline;
+}
+
+.lek{
+    background-color: aqua;
+}
+
+.logout-link {
+    float: right;
+}
