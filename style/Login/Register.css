@@ -1,0 +1,53 @@
+body {
+    background-image: url('/img/template.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#register-form {
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+#register-form label {
+    display: block;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+#register-form input[type="text"],
+#register-form input[type="password"],
+#register-form input[type="email"],
+#register-form input[type="submit"] {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 10px;
+}
+
+/* #register-form input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+#register-form:hover input[type="submit"] {
+    background-color: #4e90d8;
+} */
+
+.submit{
+    background-color: #007bff;
+}
+.submit:hover{
+    background-color: #4e90d8;
+}

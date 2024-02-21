@@ -30,13 +30,20 @@ body {
     border: none;
     border-radius: 10px;
 }
-#login-form input[type="submit"] {
-    background-color: #007bff; /* เปลี่ยนสีปุ่ม */
+/* #login-form input[type="submit"] {
+    background-color: #007bff; 
     color: #fff;
     cursor: pointer;
 }
 #login-form:hover input[type="submit"] {
-    background-color: #4e90d8; /* เปลี่ยนสีปุ่ม */
+    background-color: #4e90d8;
     color: #fff;
     cursor: pointer;
+} */
+
+.submit{
+    background-color: #007bff;
+}
+.submit:hover{
+    background-color: #4e90d8;
 }

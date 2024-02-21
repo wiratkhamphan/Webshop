@@ -17,13 +17,21 @@ document.getElementById("login-form-element").addEventListener("submit", functio
     })
     .then(response => {
         if (response.ok) {
-            alert("Login successful!");
-            window.location.href = "/index.html"; 
+            // alert("Login successful!");
+            $('#successful').modal('show');
+            
+            setTimeout(function() {
+                window.location.href = "/index.html";
+            }, 900);
+            
         } else {
-            alert("Login failed. Please check your credentials.");
+            $('#failed').modal('show');
+            // alert("Login failed. Please check your credentials.");
         }
     })
     .catch(error => {
         console.error("Error:", error);
+        $('#exampleModal').modal('show'); // เรียกใช้ modal
+
     });
 });

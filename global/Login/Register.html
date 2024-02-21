@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="/style/Login/login.css">
+    <title>Register</title>
+    <link rel="stylesheet" href="/style/Login/Register.css">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
@@ -14,55 +14,38 @@
 </head>
 
 <body>
-    <div id="login-form">
-        <form id="login-form-element">
-            <label for="username">Username :</label>
-            <input type="text" id="username" name="username" placeholder="Enter your username"><br>
+    <div id="register-form">
+        <form id="register-form-element">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username">
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password" placeholder="Enter your password"><br>
-            <input type="submit" value="Login" class="submit">
+            <input type="password" id="password" name="password" placeholder="Enter your password">
+            <label for="email">Email:</label> <!-- Corrected for attribute to match input id -->
+            <input type="email" id="email" name="email" placeholder="Enter your email">
+            <input type="submit" value="Register" class="submit" >
+            
         </form>
-        <a href="Register.html">Forger password or Sign UP</a>
+        <a href="Login.html">Already have an account? Login here</a>
     </div>
-
-
-    <!-- Modal -->
-    <!-- Error Loginsuccessful! -->
+        <!-- Modal -->
+    <!-- Error successful! -->
 
     <div class="modal fade" id="successful" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="successful">Login</h5>
+                    <h5 class="modal-title" id="successful">Register</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    Login successful!
+                     successful!
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Modal -->
-    <!-- Error Login failed -->
-
-    <div class="modal fade" id="failed" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="failed">Login failed</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    Login failed. Please check your credentials.
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Modal -->
     <!-- Error api -->
@@ -83,10 +66,9 @@
         </div>
     </div>
 
+<script src="postRegister.js">
 
-    <script src="posLogin.js">
-
-    </script>
+</script>
 </body>
 
 </html>
