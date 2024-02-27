@@ -4,7 +4,7 @@ import (
 	"database/sql"
 	"log"
 
-	"github.com/gofiber/fiber/v2" // Ensure you're using the correct import path for Fiber v2
+	"github.com/gofiber/fiber/v2" //
 	condb "github.com/wiratkhamphan/Webshop.git/condb"
 )
 

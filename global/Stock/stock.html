@@ -1,16 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stock</title>
-    <link rel="stylesheet" href=/style/global/globalmeun.css>
-</head>
-<body>
-    <nav id="globalmeun" class="menu">
-        
-    </nav>
 
-    <script src="/global/globalmeun.js"></script>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>โปรแกรมยิงกล่องรับเข้า</title>
+  <link rel="stylesheet" href="/style/index.css">
+  <link rel="stylesheet" href="/style/global/globalmeun.css">
+  <link rel="stylesheet" href="/style/stock/stock.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body style="margin:0;">
+  <nav id="" class="menu">
+    <div id="globalmeun" class="navbar"></div>
+  </nav>
+
+  <div class="container">
+    <h2>โปรแกรมยิงกล่องรับเข้า</h2>
+
+    <div class="content">
+      <div class="content-left">
+        <a>รายการรอยิง จำนวน 0 กล่อง</a>
+        <button>Reresh</button>
+        <a>BOX SN : </a>
+        <input type="text" id="boxSnInput" placeholder="กรอกหมายเลขกล่อง + Enter">
+      </div>
+
+      <div class="content-right">
+        <table>
+          <tr>
+            <th>Box Sn</th>
+            <th>สถานะ</th>
+            <th>วันที่ส่ง</th>
+          </tr>
+          <tr>
+            <td id="boxIdCell"></td>
+            <td id="statusCell"></td>
+            <td id="timeCell"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <form>
+      <div class="content">
+        <div class="content-left">
+          <a>รายการรอยิง จำนวน 0 กล่อง</a>
+          <button type="submit" value="จัดเก็บ">จัดเก็บ</button>
+        </div>
+
+        <div class="content-right">
+          <table>
+            <tr>
+              <th>Box Sn</th>
+              <th>สถานะ</th>
+              <th>วันที่ส่ง</th>
+            </tr>
+            <tr>
+              <td id="inputBoxIdCell"></td>
+              <td id="inputStatusCell"></td>
+              <td id="inputTimeCell"></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <script src="/global/globalmeun.js"></script>
+  <script>
+    // Function to fetch stock data and populate the table
+    function fetchAndPopulateStockData() {
+      fetch('http://127.0.0.1:8080/Stock')
+        .then(response => response.json())
+        .then(data => {
+          const boxIdCell = document.getElementById('boxIdCell');
+          const statusCell = document.getElementById('statusCell');
+          const timeCell = document.getElementById('timeCell');
+  
+          // Ensure that there's data available
+          if (data.length > 0) {
+            const item = data[0]; // Assuming you only have one item for simplicity
+            boxIdCell.textContent = item.box_id;
+            statusCell.textContent = item.status;
+            timeCell.textContent = item.time;
+          } else {
+            // If there's no data available, display a message or handle it as needed
+            boxIdCell.textContent = 'No data available';
+            statusCell.textContent = 'No data available';
+            timeCell.textContent = 'No data available';
+          }
+        })
+        .catch(error => console.error('Error fetching stock data:', error));
+    }
+  
+    // Fetch and populate stock data initially
+    fetchAndPopulateStockData();
+  
+    // Event listener for form submission
+    document.querySelector('form').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent form submission
+  
+      const inputBoxIdCell = document.getElementById('inputBoxIdCell');
+      const inputStatusCell = document.getElementById('inputStatusCell');
+      const inputTimeCell = document.getElementById('inputTimeCell');
+      const boxSnInput = document.getElementById('boxSnInput').value;
+  
+      // Display the entered box SN in the input cells
+      inputBoxIdCell.textContent = boxSnInput;
+      inputStatusCell.textContent = 'Status'; // Assuming you have a default value for status
+      inputTimeCell.textContent = new Date().toLocaleString(); // Assuming you want to display the current time
+  
+      // Clear the input field after submitting
+      document.getElementById('boxSnInput').value = '';
+    });
+  
+    // Event listener for input field's "Enter" key press
+    document.getElementById('boxSnInput').addEventListener('keypress', function(event) {
+      if (event.key === 'Enter') {
+        // Trigger form submission when Enter key is pressed
+        document.querySelector('form').dispatchEvent(new Event('submit'));
+      }
+    });
+  </script>
 </body>
+
 </html>

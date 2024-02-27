@@ -1,26 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="stylesheet" href="/style/index.css">
-    <link rel="stylesheet" href="/style/global/globalmeun.css">
+    <link rel="stylesheet" href="style/global/globalmeun.css">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 </head>
 
-<body style="margin:0;">
-    <!-- menu -->
+<body>
     <nav id="" class="menu">
         <div id="globalmeun" class="navbar">
         </div>
     </nav>
 
-<!-- menu  js-->
+
+    <!-- Trigger/Open The Modal -->
+    <button id="myBtn" class="myModal1">QR</button>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="center_QR">
+            <span class="close">&times;</span>
+            <div class="">
+                <img src="img/QR_LEK.jpg">
+            </div>
+        </div>
+    </div>
+
     <script src="/global/globalmeun.js"></script>
+    <script src="/global/gomeun.js"></script>
+    <script src="index/modal_QR.js"></script>
+    
+
+
 </body>
+
 </html>

@@ -7,6 +7,7 @@ import (
 	"github.com/gofiber/fiber/v2"
 	login "github.com/wiratkhamphan/Webshop.git/login"
 	register "github.com/wiratkhamphan/Webshop.git/login/register"
+	"github.com/wiratkhamphan/Webshop.git/stock"
 )
 
 func main() {
@@ -30,6 +31,7 @@ func main() {
 	// เส้นทาง API สำหรับการเข้าสู่ระบบ
 	app.Post("/login", login.Login)
 	app.Post("/register", register.Register)
+	app.Get("/Stock", stock.Stock)
 
 	// เริ่มต้นเซิร์ฟเวอร์
 	log.Fatal(app.Listen(":8080"))

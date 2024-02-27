@@ -1,70 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="stylesheet" href="/style/index.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="style/global/globalmeun.css">
+    <link rel="stylesheet" href="/style/global/globalmeun.css">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
-<body>
+<body style="margin:0;">
     <nav id="" class="menu">
         <div id="globalmeun" class="navbar">
         </div>
-      </nav>
+    </nav>
+  
+    <!-- Trigger/Open The Modal -->
+    <button id="myBtn" class="myModal1">QR</button>
 
-    <!-- Instead of using both img tag and background image, choose one method -->
-    <!-- <div class="img">
-        <img src="img/template.jpg" alt="Girl in a jacket" width="200" height="190">
-    </div> -->
-
-    <div class="img">
-        <img src="img/template.jpg" alt="Girl in a jacket" width="200" height="190">
-    </div>
-
-    <div id="content">
-        <input type="button" value="Scan QR" class="QR" id="scanQR">
-    </div>
-
-    <div class="modal fade" id="qrModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalTitle">QR Code Scanner</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <!-- Adjust the width and height attributes of the img tag -->
-                    <img src="img/QR_LEK.jpg" width="200" height="200">
-                </div>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="center_QR">
+            <span class="close">&times;</span>
+            <div class="">
+                <img src="img/QR_LEK.jpg">
             </div>
         </div>
     </div>
-    
 
-    <script src="global/globalmeun.js"></script>
-    <script src="global/go.js"></script>
+    <script src="/global/globalmeun.js"></script>
+    <script src="/index/modal_QR.js"></script>
     <script>
-        // Wait for the document to be fully loaded
-        $(document).ready(function() {
-            // Add click event listener to the button
-            $('#scanQR').click(function() {
-                // Show the modal when the button is clicked
-                $('#qrModal').modal('show');
-            });
-        });
+     
     </script>
- 
 </body>
-
 </html>
