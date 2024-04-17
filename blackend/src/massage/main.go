@@ -36,18 +36,15 @@ func Grade(score int) string {
 	}
 }
 
-// Handler function to process POST requests containing grade data
 func PostGrade(c *fiber.Ctx) error {
-	// Parse the request body into a Grade1 struct
+
 	var grade Grade1
 	if err := c.BodyParser(&grade); err != nil {
 		return err
 	}
 
-	// Calculate the grade letter using the Grade function
 	gradeLetter := Grade(grade.Grade)
 
-	// Construct the response JSON
 	response := struct {
 		ID    PostID `json:"id"`
 		Grade string `json:"grade"`
@@ -56,8 +53,27 @@ func PostGrade(c *fiber.Ctx) error {
 		Grade: gradeLetter,
 	}
 
-	// Return the response as JSON
 	return c.JSON(response)
+}
+
+func PostGradeTest(c *fiber.Ctx) error {
+	var TestGrade Grade1
+
+	if err := c.BodyParser(&TestGrade); err != nil {
+		return err
+
+	}
+	Test1Grad := Grade(TestGrade.Grade)
+
+	resJsonTestGrade := struct {
+		ID    PostID `json:"id"`
+		Grade string `json:"grade"`
+	}{
+		ID:    TestGrade.ID,
+		Grade: Test1Grad,
+	}
+
+	return c.JSON(resJsonTestGrade)
 }
 
 func main() {
@@ -67,6 +83,7 @@ func main() {
 	app.Get("/Get/:ID", GetPostByID)
 	app.Post("/Post1", CreatePost)
 	app.Post("Grade", PostGrade)
+	app.Post("/Grade/test", PostGradeTest)
 
 	app.Listen(":8080")
 }
